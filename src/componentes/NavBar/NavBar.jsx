@@ -6,17 +6,17 @@ const NavBar = () => {
   return (
     <header>
         <Link to= "/">
-        <h1>Kits Imprimibles</h1>
+        <img src="../img/logo.png" className='imgLogo' alt="Logo" />
         </Link>
         
         <nav>
             <ul>
                 <li>
-                <NavLink to= "/categoria/1"> Nenas </NavLink>
+                <NavLink className="miBtn" to= "/categoria/1"> Princesas </NavLink>
                 </li>
 
                 <li>
-                <NavLink to= "/categoria/2"> Nenes </NavLink> 
+                <NavLink className="miBtn" to= "/categoria/2"> Superhéroes </NavLink> 
                 </li>
 
             </ul>

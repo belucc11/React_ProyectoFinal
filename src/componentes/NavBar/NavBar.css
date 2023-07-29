@@ -14,3 +14,7 @@ li {
 header h1{
     color: rgb(226, 43, 144);
 }
+
+.imgLogo {
+    width: 16rem;
+}
