@@ -1,6 +1,6 @@
-import React from 'react'
-import ItemCount from '../ItemCount/ItemCount'
-import {Link} from 'react-router-dom';
+import React, { useState } from 'react';
+import ItemCount from '../ItemCount/ItemCount';
+import { Link } from 'react-router-dom';
 import './ItemDetail.css'
 
 //Primer paso: IMPORTEMOS
@@ -29,11 +29,13 @@ const ItemDetail = ({id, nombre, precio, img, stock}) => {
 
   return (
     <div className='contenedorItem'>
-      <h2>Nombre: {nombre} </h2>
-      <h3>Precio: {precio} </h3>
-      <h3>ID: {id} </h3>
-        <p>El kit consta de todo lo que necesitas para personalizar invitaciones, toppers, etiquetas para botellas y cajitas de pochoclos. </p>
-        <img src={img} alt={nombre} />
+      <h2>Kit: {nombre} </h2>
+      <img src={img} alt={nombre} />
+      <p>El kit consta de todo lo que necesitas para personalizar invitaciones, toppers, etiquetas para botellas y cajitas de pochoclos. </p>
+      <h3>Precio: $ {precio} </h3>
+      <h4>Id: {id} </h4>
+        
+        
 
         {
         agregarCantidad > 0 ? (<Link className='miBtn' to="/cart"> Terminar compra </Link>) : (<ItemCount inicial={1} stock={stock} funcionAgregar={manejadorCantidad} />)

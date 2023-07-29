@@ -12,11 +12,11 @@ const NavBar = () => {
         <nav>
             <ul>
                 <li>
-                <NavLink className="miBtn" to= "/categoria/1"> Princesas </NavLink>
+                <NavLink className="navBtn" to= "/categoria/1"> Princesas </NavLink>
                 </li>
 
                 <li>
-                <NavLink className="miBtn" to= "/categoria/2"> Superhéroes </NavLink> 
+                <NavLink className="navBtn" to= "/categoria/2"> Superhéroes </NavLink> 
                 </li>
 
             </ul>

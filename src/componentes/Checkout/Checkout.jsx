@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { CarritoContext } from "../../context/CarritoContext";
 import { db } from "../../services/config";
 import { collection, addDoc, updateDoc, doc, getDoc } from "firebase/firestore";
+import './Checkout.css'
 
 const Checkout = () => {
     const [nombre, setNombre] = useState("");
@@ -22,13 +23,13 @@ const Checkout = () => {
 
         //Verificamos que los campos esten completos: 
         if (!nombre || !apellido || !telefono || !email || !emailConfirmacion) {
-            setError("Por favor completa todos los campos o moriras");
+            setError("Por favor completa todos los campos");
             return;
         }
 
         //Validamos que los campos del email coincidan 
         if (email !== emailConfirmacion) {
-            setError("Los campos del email no coinciden, maldito!!!");
+            setError("Los campos del email no coinciden");
             return;
         }
 
@@ -71,13 +72,13 @@ const Checkout = () => {
                         vaciarCarrito();
                     })
                     .catch((error) => {
-                        console.log("Error al crear la orden, vamos a morir", error);
-                        setError("Error al crear la orden, por favor vuelva a intentarlo en 4 días");
+                        console.log("Error al crear la orden", error);
+                        setError("Error al crear la orden, por favor vuelva a intentarlo");
                     });
             })
             .catch((error) => {
                 console.log("No se puede actualizar el stock", error);
-                setError("No se puede actualizar el stock, intente en Supermercado Vital");
+                setError("No se puede actualizar el stock");
             })
 
     }
@@ -89,17 +90,18 @@ const Checkout = () => {
                 {
                     carrito.map(producto => (
                         <div key={producto.item.id}>
-                            <p> {producto.item.nombre} x  {producto.cantidad} </p>
-                            <p> {producto.item.precio} </p>
+                            <p> Kit Imprimible temática {producto.item.nombre} x  {producto.cantidad} unidades </p>
+                            <p> Precio por unidad: ${producto.item.precio} </p>
                             <hr />
 
                         </div>
                     ))
                 }
-                <strong>Cantidad Total: {cantidadTotal} </strong>
+                <p>Cantidad Total de Kits: {cantidadTotal} </p>
                 <hr />
 
                 <div className="form-group">
+                <p> Completá tus datos para finalizar la compra </p>
                     <label htmlFor=""> Nombre </label>
                     <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} />
                 </div>
@@ -128,7 +130,7 @@ const Checkout = () => {
                     error && <p style={{ color: "red" }}> {error} </p>
                 }
 
-                <button type="submit"> Finalizar Compra </button>
+                <button className="botonFinalizar" type="submit"> Finalizar Compra </button>
             </form>
             {
                 ordenId && (

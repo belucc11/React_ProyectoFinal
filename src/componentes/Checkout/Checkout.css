@@ -1,21 +1,12 @@
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid black;
+p{
+    font-size: medium;
 }
 
-li {
-    display: inline-block;
-    margin: 1rem;
-    cursor: pointer;
+.form-group{
+    color: rgb(177, 3, 119)
 }
 
-.imgLogo {
-    width: 16rem;
-}
-
-.navBtn{
+.botonFinalizar{
     background-color: #e068a4;
     color: #fff;
     border: none;
@@ -23,11 +14,11 @@ li {
     padding: 0.5rem 1rem;
     text-decoration: none;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
   }
   
-  .navBtn:hover {
+  .botonFinalizar:hover {
     background-color: #a1086e;
   }

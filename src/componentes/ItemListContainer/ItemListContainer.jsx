@@ -9,9 +9,9 @@ import { db } from "../../services/config";
 const ItemListContainer = (props) => {
     const [productos, setProductos] = useState([]);
 
-    const {idCategoria} = useParams ();
+    const { idCategoria } = useParams ();
 
-    useEffect( () => {
+    useEffect(() => {
         const misProductos = idCategoria ? query(collection(db, "inventario"), where("idCat", "==", idCategoria)) : collection(db, "inventario");
 
         getDocs(misProductos)
